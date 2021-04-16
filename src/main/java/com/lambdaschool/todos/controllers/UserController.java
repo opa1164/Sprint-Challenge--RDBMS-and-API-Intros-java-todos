@@ -39,6 +39,7 @@ public class UserController
         produces = {"application/json"})
     public ResponseEntity<?> listAllUsers()
     {
+        System.out.println("users get");
         List<User> myUsers = userService.findAll();
         return new ResponseEntity<>(myUsers,
             HttpStatus.OK);
@@ -53,7 +54,7 @@ public class UserController
      * @see UserService#findUserById(long) UserService.findUserById(long)
      */
     @GetMapping(value = "/user/{userId}",
-        produces = {"application/json"})
+        produces = "application/json")
     public ResponseEntity<?> getUserById(
         @PathVariable
             Long userId)
